@@ -1,0 +1,66 @@
+PREC   =  Normal 
+NCORE = 10
+ISYM = 0
+
+#DFT+U
+#LDAU =
+#LDAUTYPE =
+#LDAUU =
+#LDAUJ =
+#LDAUL =
+
+
+#Structure optimization
+LREAL  = A
+ISIF = 2
+IBRION = 2
+NSW = 500
+POTIM = 0.05
+EDIFF = 1E-5
+EDIFFG = -0.03
+ENCUT = 500
+
+#Electronic structure calculations
+#ISTART =
+#ICHARG =
+ISPIN = 1
+#MAGMOM =
+#LMAXMIX =
+NELM = 100
+NELMIN = 6
+ALGO = F
+LWAVE = F
+LCHARG = F
+#ADDGRID =
+#IVDW =
+#NSIM =
+# LVTOT  = .TRUE.
+# LVHAR  = .TRUE.
+
+#DOS calculations
+#LORBIT =
+ISMEAR = 0
+SIGMA = 0.05
+#EMIN =
+#EMAX =
+#NEDOS =
+#LPEAD =
+
+#Other parameters
+#IBAND =
+#IFREEZE =
+#NBMOD =
+#NFREE =
+#LDAUPRINT =
+#LMAXPAW =
+#LWANNIER90 =
+#PRECFOCK =
+#LASPH =
+#NSIM =
+
+#NEB
+# IPOT = 1
+# ICHAIN = 0
+# LCIMB = .TRUE.
+# IMAGES = 3
+# SPRING = -5
