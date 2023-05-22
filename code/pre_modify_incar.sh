@@ -110,6 +110,54 @@ do
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
+    elif [ $arg == "ispin" ];then
+        sed -i 's/^.*ISPIN =.*/ISPIN = 2/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "ISPIN = 2"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
+    elif [ $arg == "vdw" ];then
+        sed -i 's/^.*IVDW =.*/IVDW = 11/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "IVDW = 11"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
+    elif [[ $arg == *encut_* ]];then
+        substring=${arg//encut_/}
+        sed -i "s/^.*ENCUT =.*/ENCUT = ${substring}/g" INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "ENCUT = ${substring}"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
+    elif [[ $arg == *ediff_* ]];then
+        substring=${arg//ediff_/}
+        sed -i "s/^.*EDIFF =.*/EDIFF = ${substring}/g" INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "EDIFF = ${substring}"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
+    elif [[ $arg == *ediffg_* ]];then
+        substring=${arg//ediffg_/}
+        sed -i "s/^.*EDIFFG =.*/EDIFFG = ${substring}/g" INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "EDIFFG = ${substring}"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     else
         echo "Error: $arg is not a valid argument"
         exit 1
