@@ -10,11 +10,15 @@ do
         sed -i 's/^.*IBRION =.*/IBRION = 5/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-6/g' INCAR;
     elif [ $arg == "scf" ];then
-        sed -i 's/^.*NFREE =.*/NFREE = 2/g' INCAR;
+        sed -i 's/^.*NSW =.*/NSW = 0/g' INCAR;
         sed -i 's/^.*IBRION =.*/NFREE = -1/g' INCAR;
         sed -i 's/^.*LWAVE =.*/LWAVE = T/g' INCAR;
         sed -i 's/^.*LCHARG =.*/LCHARG = T/g' INCAR;
     elif [ $arg == "dos" ];then
+        sed -i 's/^.*NSW =.*/NSW = 0/g' INCAR;
+        sed -i 's/^.*IBRION =.*/NFREE = -1/g' INCAR;
+        sed -i 's/^.*LWAVE =.*/LWAVE = T/g' INCAR;
+        sed -i 's/^.*LCHARG =.*/LCHARG = T/g' INCAR;
         sed -i 's/^.*ICHARG =.*/ICHARG = 11/g' INCAR;
         sed -i 's/^.*LORBIT =.*/LORBIT = 11/g' INCAR;
         sed -i 's/^.*NEDOS =.*/NEDOS = 2000/g' INCAR;

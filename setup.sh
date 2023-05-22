@@ -23,8 +23,8 @@ cd ..;
 tt='for i in *;do if [ -d $i ];then mv ${i}.* $i/;cd $i;cif_to_vasp;mv ${i}.vasp POSCAR;cd ..;fi;done'
 potcar='potcar.sh $(sed -n '6p' POSCAR)'
 kpotcar='potcar.sh $(sed -n '6p' POSCAR);(echo 102;echo 2;echo 0.04)|vaspkit'
-DFT_U='cp ~/bin/DFT+U_from_poscar.py .;python DFT+U_from_poscar.py'
-fix_ads_atoms='cp ~/bin/fix_ads_atoms.py .;python fix_ads_atoms.py'
+fix_ads_atoms='fix_ads_atoms.py'
+incar="cp ${SETUP_PATH}/INCAR ./"
 
 alias_list=[$tt,$potcar,$kpotcar,$DFT_U,$fix_ads_atoms]
 for i in ${alias_list[@]};do
