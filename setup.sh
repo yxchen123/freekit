@@ -12,9 +12,9 @@ fi
 #检测${SETUP_PATH}有没有被添加到环境变量中
 if [ `grep -c "${SETUP_PATH}" ~/.bashrc` -eq '1' ]; then
     n=`grep -rin "${SETUP_PATH}" ~/.bashrc|awk  -F ':'  '{print $1}'`
-    sed -i ""${n}"c  export PATH=${SETUP_PATH}" ~/.bashrc
+    sed -i ""${n}"c  export PATH=${SETUP_PATH}:\${PATH}" ~/.bashrc
 else
-    echo "export PATH=${SETUP_PATH}" >> ~/.bashrc
+    echo "export PATH=${SETUP_PATH}:\${PATH}" >> ~/.bashrc
 fi
 
 
