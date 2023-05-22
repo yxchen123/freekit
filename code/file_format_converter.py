@@ -1,4 +1,4 @@
-#PYTHON_PATH
+#!/opt/Anaconda3/2022.05/bin/python
 import sys
 import os
 from pymatgen.core import Structure
