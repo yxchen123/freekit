@@ -158,6 +158,28 @@ do
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
+    elif [[ $arg == "metal" ]];then
+        sed -i "s/^.*ISMEAR =.*/ISMEAR = 1/g" INCAR;
+        sed -i "s/^.*SIGMA =.*/SIGMA = 0.2/g" INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "ISMEAR = 1"
+        printf "|         %-23s |\n" "SIGMA = 0.2"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
+    elif [[ $arg == "nometal" ]];then
+        sed -i "s/^.*ISMEAR =.*/ISMEAR = 0/g" INCAR;
+        sed -i "s/^.*SIGMA =.*/SIGMA = 0.05/g" INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "ISMEAR = 0"
+        printf "|         %-23s |\n" "SIGMA = 0.05"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     else
         echo "Error: $arg is not a valid argument"
         exit 1
