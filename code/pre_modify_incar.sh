@@ -9,35 +9,107 @@ do
         sed -i 's/^.*POTIM =.*/POTIM = 0.015/g' INCAR;
         sed -i 's/^.*IBRION =.*/IBRION = 5/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-6/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "NFREE = 2"
+        printf "|         %-23s |\n" "POTIM = 0.015"
+        printf "|         %-23s |\n" "IBRION = 5"
+        printf "|         %-23s |\n" "EDIFF = 1E-6"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "scf" ];then
         sed -i 's/^.*NSW =.*/NSW = 0/g' INCAR;
-        sed -i 's/^.*IBRION =.*/NFREE = -1/g' INCAR;
+        sed -i 's/^.*IBRION =.*/IBRION = -1/g' INCAR;
         sed -i 's/^.*LWAVE =.*/LWAVE = T/g' INCAR;
         sed -i 's/^.*LCHARG =.*/LCHARG = T/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "NSW = 0"
+        printf "|         %-23s |\n" "IBRION = -1"
+        printf "|         %-23s |\n" "LWAVE = T"
+        printf "|         %-23s |\n" "LCHARG = T"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "dos" ];then
         sed -i 's/^.*NSW =.*/NSW = 0/g' INCAR;
-        sed -i 's/^.*IBRION =.*/NFREE = -1/g' INCAR;
+        sed -i 's/^.*IBRION =.*/IBRION = -1/g' INCAR;
         sed -i 's/^.*LWAVE =.*/LWAVE = T/g' INCAR;
         sed -i 's/^.*LCHARG =.*/LCHARG = T/g' INCAR;
         sed -i 's/^.*ICHARG =.*/ICHARG = 11/g' INCAR;
         sed -i 's/^.*LORBIT =.*/LORBIT = 11/g' INCAR;
         sed -i 's/^.*NEDOS =.*/NEDOS = 2000/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "NSW = 0"
+        printf "|         %-23s |\n" "IBRION = -1"
+        printf "|         %-23s |\n" "LWAVE = T"
+        printf "|         %-23s |\n" "LCHARG = T"
+        printf "|         %-23s |\n" "ICHARG = 11"
+        printf "|         %-23s |\n" "LORBIT = 11"
+        printf "|         %-23s |\n" "NEDOS = 2000"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "elf" ];then
         sed -i 's/^.*PREC =.*/PREC = Accurate/g' INCAR;
         sed -i 's/^.*LELF =.*/LELF = T/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "PREC = Accurate"
+        printf "|         %-23s |\n" "LELF = T"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "wf" ];then
-        sed -i 's/^.*LVTOT =.*/PREC = Accurate/g' INCAR;
+        sed -i 's/^.*LVTOT =.*/LVTOT = T/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "LVTOT = T"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "dft_u" ];then
         DFT+U_from_poscar.py
     elif [ $arg == "c_nrom" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.03/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-5/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "EDIFFG = -0.03"
+        printf "|         %-23s |\n" "EDIFF = 1E-5"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "c_low" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.05/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-4/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "EDIFFG = -0.05"
+        printf "|         %-23s |\n" "EDIFF = 1E-4"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     elif [ $arg == "c_high" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.01/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-6/g' INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "EDIFFG = -0.01"
+        printf "|         %-23s |\n" "EDIFF = 1E-6"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     else
         echo "Error: $arg is not a valid argument"
         exit 1
