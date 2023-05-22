@@ -1,4 +1,4 @@
-PREC   =  Normal 
+PREC =  Normal 
 NCORE = 10
 ISYM = 0
 
@@ -34,8 +34,8 @@ LCHARG = F
 #ADDGRID =
 #IVDW =
 #NSIM =
-# LVTOT  = .TRUE.
-# LVHAR  = .TRUE.
+# LVTOT = .TRUE.
+# LVHAR = .TRUE.
 
 #DOS calculations
 #LORBIT =

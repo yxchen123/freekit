@@ -1,3 +1,4 @@
+#PYTHON_PATH
 from pymatgen.core.structure import Structure
 import os
 
