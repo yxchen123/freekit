@@ -32,7 +32,7 @@ kpotcar="kpotcar='potcar.sh \$(sed -n '6p' POSCAR);(echo 102;echo 2;echo 0.04)|v
 fix_ads_atoms="fix_ads_atoms='fix_ads_atoms.py'"
 incar="incar='cp ${SETUP_PATH}/INCAR ./'"
 DFT_U="DFT_U='DFT+U_from_poscar.py'"
-cif_to_vasp="cif_to_vasp='file_format_converter.py'"
+cif_to_vasp="cif_to_vasp='file_format_converter.py *.cif'"
 kpotcar="kpotcar='potcar.sh \$(sed -n '6p' POSCAR);(echo 102;echo 2;echo 0.04)|vaspkit'"
 alias_list=("$tt" "$potcar" "$kpotcar" "$DFT_U" "$fix_ads_atoms" "$incar" "$DFT_U" "$cif_to_vasp" "$kpotcar")
 for i in "${alias_list[@]}";do
