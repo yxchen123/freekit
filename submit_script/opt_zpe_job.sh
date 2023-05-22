@@ -5,6 +5,11 @@
 #SBATCH -e job-%j.err
 #SBATCH -N 2 -n 80
 #SBATCH -p CPU-Shorttime --qos=qos_cpu_shorttime
+
+source alias.sh
+shopt -s  expand_aliases
+shopt expand_aliases
+
 echo Time is `date`
 echo Directory is $PWD
 echo This job runs on the following nodes:
@@ -21,16 +26,10 @@ for i in *;do
     fi
     cd $i;
     (echo 102;echo 2;echo 0.04)|vaspkit;
-    cp ~/bin/INCAR ./;
-    # cp ~/bin/DFT+U_from_poscar.py ./;
-    # python DFT+U_from_poscar.py;
-    sed -i 's/^.*ISPIN =.*/ISPIN = 2/g' INCAR;
-    sed -i 's/^.*IVDW =.*/IVDW = 11/g' INCAR;
-    
+    incar;
     if [ ! -f init_POSCAR ];then
         cp POSCAR init_POSCAR;
     fi
-
     #执行VASP
     echo "Starting Time is `date`" >>display
     echo "Directory is `pwd`" >>display
