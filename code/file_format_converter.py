@@ -1,4 +1,4 @@
-#!/home/scms/yxchen/.conda/envs/pytorch/bin/python
+#!/opt/Anaconda3/2022.05/bin/python
 import sys
 import os
 from pymatgen.core import Structure

@@ -1,4 +1,4 @@
-#!/home/scms/yxchen/.conda/envs/pytorch/bin/python
+#!/opt/Anaconda3/2022.05/bin/python
 #该脚本用于生产固定原子坐标的POSCAR文件，指定原子编号不去固定，其余原子固定
 #主要是用于频率计算中固定slab的原子，以便于计算
 import sys

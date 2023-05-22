@@ -11,3 +11,5 @@ alias tt='for i in *;do if [ -d $i ];then mv ${i}.* $i/;cd $i;cif_to_vasp;mv ${i
 alias tt='for i in *;do if [ -d $i ];then mv ${i}.* $i/;cd $i;cif_to_vasp;mv ${i}.vasp POSCAR;cd ..;fi;done'
 alias tt='for i in *;do if [ -d $i ];then mv ${i}.* $i/;cd $i;cif_to_vasp;mv ${i}.vasp POSCAR;cd ..;fi;done'
 alias tt='for i in *;do if [ -d $i ];then mv ${i}.* $i/;cd $i;cif_to_vasp;mv ${i}.vasp POSCAR;cd ..;fi;done'
+alias tt='for i in *;do if [ -d $i ];then mv ${i}.* $i/;cd $i;cif_to_vasp;mv ${i}.vasp POSCAR;cd ..;fi;done'
+alias cif_to_vasp='file_format_converter.py'
