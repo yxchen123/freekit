@@ -4,6 +4,9 @@ import os
 from pymatgen.core import Structure
 from pymatgen.io.cif import CifWriter
 from pymatgen.io.vasp.outputs import Poscar
+import warnings
+# 忽略警告
+warnings.filterwarnings('ignore')
 
 def convert_file_format(file_path):
     # 判断文件类型
