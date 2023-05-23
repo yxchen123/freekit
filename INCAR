@@ -34,8 +34,10 @@ LCHARG = F
 #ADDGRID =
 #IVDW =
 #NSIM =
-# LVTOT = .TRUE.
-# LVHAR = .TRUE.
+#LVTOT = .TRUE.
+#LVHAR = .TRUE.
+#LELF = .TRUE.
+#LAECHG = .TRUE.
 
 #DOS calculations
 #LORBIT =

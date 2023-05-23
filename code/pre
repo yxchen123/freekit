@@ -161,6 +161,15 @@ do
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
+    elif [[ $arg == "bader" ]];then
+        sed -i "s/^.*LAECHG =.*/LAECHG = T/g" INCAR;
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "INCAR changed"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "LAECHG = T"
+        printf "+---------------------------------+\n"
+        printf "|         %-23s |\n" "Please Check it!"
+        printf "+---------------------------------+\n"
     else
         echo "Error: $arg is not a valid argument"
         exit 1
