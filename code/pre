@@ -75,9 +75,9 @@ do
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
-    elif [ $arg == "dft_u" ];then
+    elif [ $arg == "dft+u" ];then
         DFT+U_from_poscar.py
-    elif [ $arg == "c_nrom" ];then
+    elif [ $arg == "cnorm" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.03/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-5/g' INCAR;
         printf "+---------------------------------+\n"
@@ -88,7 +88,7 @@ do
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
-    elif [ $arg == "c_low" ];then
+    elif [ $arg == "clow" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.05/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-4/g' INCAR;
         printf "+---------------------------------+\n"
@@ -99,7 +99,7 @@ do
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
-    elif [ $arg == "c_high" ];then
+    elif [ $arg == "chigh" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.01/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-6/g' INCAR;
         printf "+---------------------------------+\n"
