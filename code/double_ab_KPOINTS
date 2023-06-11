@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# 读取文件内容并进行修改
+line_number=0
+while IFS= read -r line; do
+  line_number=$((line_number+1))
+
+  if [[ $line_number == 4 ]]; then
+    # 处理第四行中的数字
+    modified_line=""
+    count=0
+    for num in $line; do
+      count=$((count+1))
+      if [[ $count -le 2 ]] && [[ $num =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        modified_num=$(awk -v num="$num" 'BEGIN { printf "%.15g", num * 2 }')
+        modified_line+=" $modified_num"
+      else
+        modified_line+=" $num"
+      fi
+    done
+    echo "$modified_line"
+  else
+    echo "$line"
+  fi
+done < KPOINTS > KPOINTS_modified
+
+mv KPOINTS_modified KPOINTS

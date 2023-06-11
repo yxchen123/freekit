@@ -11,7 +11,7 @@ element_num = [int(i) for i in list(structure.composition.values())]
 #POSCAR中元素的个数的字符串形式
 element_num_str = [str(i) for i in element_num]
 
-magmom_dict = {"Ru": 3.0, "Ni": 3.0, "Fe": 3.0}
+magmom_dict = {"Ru": 3.0, "Ni": 3.0, "Fe": 3.0, "Tb": 3.0, "N":0.6, "O":0.6}
 # Ni/Fe/Ru LDH A. P. Sutton, Phys. Rev. B 1998, 57, 1505-1509.
 # and Phys. Rev. B 2005, 71, 035105.
 

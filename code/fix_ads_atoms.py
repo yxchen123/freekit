@@ -30,6 +30,21 @@ def find_folder(target_folder):
     os.chdir("..")
     return find_folder(target_folder)
 
+
+def find_ads_atom_index(ads_atoms_len, sum_atoms_len, sum_atoms):
+    # 对比atoms和slab_atoms,找到吸附质的原子编号
+    fixed_atoms = []
+    for i in range(ads_atoms_len):
+        flag = False
+        for j in range(ads_atoms_len, sum_atoms_len):
+            # 考虑周期性边界条件求两个原子的距离
+            if sum_atoms.get_distance(i, j, mic=True) <= 0.5:
+                flag = True
+                break
+        if not flag:
+            fixed_atoms.append(i)
+    return fixed_atoms
+
 work_dir = os.getcwd()
 os.chdir(work_dir)
 # 读取POSCAR文件
@@ -45,16 +60,15 @@ sum_atoms = ads_atoms + slab_atoms
 sum_atoms_len = len(sum_atoms)
 
 # 对比atoms和slab_atoms,找到吸附质的原子编号
-fixed_atoms = []
-for i in range(ads_atoms_len):
-    flag = False
-    for j in range(ads_atoms_len,sum_atoms_len):
-        #考虑周期性边界条件求两个原子的距离
-        if sum_atoms.get_distance(i,j,mic=True) <= 0.5:
-            flag = True
-            break
-    if not flag:
-        fixed_atoms.append(i)
+fixed_atoms = find_ads_atom_index(ads_atoms_len, sum_atoms_len, sum_atoms)
+
+if len(fixed_atoms) != ads_atoms_len - slab_atoms_len:
+    slab_atoms = read(os.path.join(slab_path, 'CONTCAR'), format='vasp')
+    slab_atoms_len = len(slab_atoms)
+    #将ads_atoms和slab_atoms合并
+    sum_atoms = ads_atoms + slab_atoms
+    sum_atoms_len = len(sum_atoms)
+    fixed_atoms = find_ads_atom_index(ads_atoms_len, sum_atoms_len, sum_atoms)
 
 # 解除需要移动的原子的固定
 constraints = FixAtoms(mask=[False if i in fixed_atoms else True for i in range(len(ads_atoms))])

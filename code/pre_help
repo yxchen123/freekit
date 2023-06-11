@@ -1,0 +1,36 @@
+#!/bin/bash
+cat << EOF
+
+---Begin---
+
+pre 命令可以便捷地修改INCAR文件中各种参数的值以适应不同计算需求,修改后会打印出修改的内容，请仔细检查
+
+前提：当前文件夹存在INCAR文件
+
+用法：pre 关键词1 关键词2 ... 关键词n Tag1_value Tag2_value ... Tagn_value
+
+示例1：pre scf
+示例2：pre scf ispin
+示例3：pre ispin EDIFFG_-0.03 scf vdw LCHARG_T
+
+关键词及使用效果如下：
+
+1. zpe       零点能计算模板，修改 NFREE = 2；POTIM = 0.015；IBRION = 5；EDIFF = 1E-6
+2. scf       单点能计算（自洽计算）模板，修改 NSW = 0；IBRION = -1；LWAVE = T；LCHARG = T
+3. dos       态密度计算模板，修改 NSW = 0；IBRION = -1；LWAVE = T；LCHARG = T；ICHARG = 11；LORBIT = 11；NEDOS = 2000
+4. elf       修改 PREC = Accurate；LELF = T
+5. wf        修改 LVTOT = T
+6. dft+u     运行 DFT+U_from_poscar.py脚本
+7. kd        使KPOINTS文件中 a b 方向的K点数翻倍，需要当前文件夹下存在KPOINTS文件
+8. cnorm     调整收敛精度为普通，修改 EDIFFG = -0.03；EDIFF = 1E-5
+9. clow      调整收敛精度为较低，修改 EDIFFG = -0.05；EDIFF = 1E-4
+10.chigh     调整收敛精度为较高，修改 EDIFFG = -0.01；EDIFF = 1E-6
+11.ispin     考虑体系的磁性打开自旋，修改 ISPIN=2
+12.vdw       修改 IVDW = 11
+13.metal     考虑体系为金属，修改 ISMEAR = 1；SIGMA = 0.2
+14.nometal   考虑体系为非金属，修改 ISMEAR = 0；SIGMA = 0.05
+15.bader     修改 LAECHG = T
+16.Tag_value 通用修改模式，Tag为要修改参数的准确名称，value为该参数对应修改的值，两者以下划线连接
+
+---End---
+EOF

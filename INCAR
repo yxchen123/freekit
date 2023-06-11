@@ -1,6 +1,12 @@
+#ISTART =
 PREC =  Normal 
 NCORE = 10
 ISYM = 0
+
+#LDIPOL =
+#IDIPOL =
+#DIPOL =
+#EFIELD =
 
 #DFT+U
 #LDAU =

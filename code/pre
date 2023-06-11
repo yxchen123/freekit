@@ -77,6 +77,10 @@ do
         printf "+---------------------------------+\n"
     elif [ $arg == "dft+u" ];then
         DFT+U_from_poscar.py
+    elif [ $arg == "kd" ];then
+        bash double_ab_KPOINTS
+    elif [ $arg == "h" ];then
+        bash pre_help
     elif [ $arg == "cnorm" ];then
         sed -i 's/^.*EDIFFG =.*/EDIFFG = -0.03/g' INCAR;
         sed -i 's/^.*EDIFF =.*/EDIFF = 1E-5/g' INCAR;
@@ -129,9 +133,13 @@ do
         printf "|         %-23s |\n" "Please Check it!"
         printf "+---------------------------------+\n"
     elif [[ $arg == *_* ]];then
-        key=`echo $arg | awk -F '_' '{print $1}'`
-        value=`echo $arg | awk -F '_' '{print $2}'`
-        sed -i "s/^.*${key} =.*/${key} = ${value}/g" INCAR;
+        #将参数用_分割成key和value
+        #第一项为key，后面全部为value(用空格隔开)
+        key=${arg%%_*}
+        value=${arg#*_}
+        #vaule中的_替换为空格
+        value=${value//_/" "}
+        sed -i "s/^\([#]*\)${key}\s*=.*/${key} = ${value}/g" INCAR
         printf "+---------------------------------+\n"
         printf "|         %-23s |\n" "INCAR changed"
         printf "+---------------------------------+\n"
